@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aljunaid</title>
+
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="app/dist/aos.css">
+    <link rel="stylesheet" href="app/dist/animate.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+    <!-- end Styles -->
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/wj2.jpg">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.png">
+   <style>
+        .unique-section {
+        
+           
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-color: #FFFFFF;
+            --text-secondary: #CCCCCC;
+        }
+    
+        .unique-section * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .unique-section {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+    
+        .unique-section .container11 {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+    
+        .unique-section .background-glow {
+            position: fixed;
+            top: -70%;
+            left: -60%;
+            width: 2000px;
+            height: 2000px;
+
+            opacity: 0.5;
+            z-index: 0;
+        }
+    
+        .unique-section h1 {
+            font-family: 'Conthrax', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    
+        .unique-section h1 span {
+            color: var(--primary-color);
+        }
+    
+        .unique-section p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+        }
+    
+        .unique-section .toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+    
+        .unique-section .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 34px;
+        }
+    
+        .unique-section .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    
+     .unique-section .slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: var(--card-bg);
+     transition: background-color 0.4s ease, box-shadow 0.4s ease;
+     border-radius: 34px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     }
+
+       
+
+     .unique-section .slider span {
+      color: var(--text-color);
+     font-weight: bold;
+     transition: opacity 0.4s ease;
+     font-size: 0.9rem;
+     }
+
+     .unique-section input:checked + .slider .skills {
+     opacity: 0.5;
+     }
+ 
+     .unique-section input:not(:checked) + .slider .tools {
+      opacity: 0.5;
+      }
+
+     .unique-section .slider:hover {
+     background-color: rgba(255, 255, 255, 0.1);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+     }
+
+    
+        .unique-section .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+        }
+    
+        .unique-section .card {
+            background: linear-gradient(to right, var(--card-bg), rgba(255, 255, 255, 0.008), var(--card-bg));
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .unique-section .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(92, 39, 254, 0.2);
+        }
+    
+        .unique-section .card img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 0.5rem;
+        }
+    
+        .unique-section .card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+    
+        @media (max-width: 768px) {
+            .unique-section h1 {
+                font-size: 2rem;
+            }
+    
+            .unique-section .grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+    .about .images {
+        display: none; /* Hide the image */
+        width: 0;
+        height: 0; /* Ensure the image area doesn't take space */
+    }
+
+    .about .block-text {
+        flex: 1; /* Allow the text block to take up the full space */
+        width: 100%; /* Make sure the block-text takes full width on mobile */
+        margin-bottom: 0; /* Remove any bottom margin to avoid extra space */
+        padding-bottom: 0; /* Remove any padding at the bottom */
+    }
+
+    .about .row.rev {
+        display: flex;
+        flex-direction: column; /* Stack the sections vertically */
+        margin-bottom: 0; /* Ensure there's no extra space when stacked */
+        padding-bottom: 0; /* Remove any padding at the bottom */
+    }
+
+    .about .col-xl-6, .about .col-md-12 {
+        width: 100%; /* Ensure both columns take full width on mobile */
+        padding: 0; /* Remove any padding within the columns */
+    }
+
+  
+    
+}
+
+        
+    </style> 
+    
+</head>
+<body class="home-main header-fixed">
+
+    <div class="wrapper">
+
+        <div class="preloader">
+            <div class="clear-loading loading-effect-2">
+            <span></span>
+            </div>
+        </div>
+
+    <!-- Header -->
+    <header id="header_main" class="header">
+        <div class="container big">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__body">
+                        <div class="header__logo">
+                            <a href="junaid.html">
+                              WAJ
+                               
+                            </a>
+                        </div>
+
+                        <div class="header__right" >
+                            <nav id="main-nav" class="main-nav">
+                                <ul id="menu-primary-menu" class="menu">
+
+                                    <li class="menu-item">
+                                        <a href="#"class="st-smooth-move">Home</a>
+                         
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#about"class="st-smooth-move">about</a>
+                                       
+                                    </li>
+  
+                                    <li class="menu-item">
+                                        <a href="#roadmap"class="st-smooth-move">Services</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#portfolio"class="st-smooth-move">portfolio</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#skills"class="st-smooth-move">skills</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#footer"class="st-smooth-move">Contact</a>
+                                    </li>                                     
+                                </ul>
+                            </nav>
+                            <div class="mobile-button"><span></span></div>
+                           
+                        </div>
+
+                        <div class="header__action">
+                            <!-- <a href="#" class="search-btn">
+                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="9.7659" cy="9.76639" r="8.98856" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.0176 16.4849L19.5416 19.9997" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                            </a> -->
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    <!-- end Header -->
+
+    <!-- Banner -->
+    <section id="home" class="banner">
+    
+        <br>
+        <div class="shape right"></div>
+        <div class="container big">
+            <div class="row">
+                
+                <div class="col-xl-6 col-md-12">
+                    <div class="banner__left">
+                        <div class="block-text">
+                            <h2 class="heading">Hello 
+                                Im junaid <br>  <span class="s1 arlo_tm_animation_text_word">full</span> <br>
+                                devaloper</h2>
+                        
+                            <a href="#footer" class="action-btn"><span> Get in Touch</span></a>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="banner__right">
+                        <div class="image">
+                            <img src="assets/images/layouts/24.png" alt="">
+                        </div>   
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- End Banner -->
+     
+
+    <!-- About -->
+    <section id="about" class="about">
+        <br>
+        <div class="shape"></div>
+        <div class="container">
+            <div class="row rev">
+                <div class="col-xl-6 col-md-12">
+                    <div class="about__right">
+                        <br>
+                        <div class="images">
+                            <img class="img1" src="assets/images/layouts/24.png" alt="">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="block-text" >
+                        <h6 class="sub-heading"><span>About me</span></h6>
+                        <h3 class="heading wow" data-splitting>Hi There! I'm Wajeeh Aljunaid</h3>
+                            <p class="mb-26"> I’m a developer who has passion for building clean web applications with intuitive
+                                functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always
+                                curious aboutlearning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have
+                                worked withcreative teams, which involves daily stand-ups and communications, source control, and project management.</p>
+                            <a href="#" class="action-btn"><span>downloud CV</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- End About -->
+
+  
+        
+    
+
+
+
+
+
+
+    <section id="roadmap" class="roadmap">
+        <br>
+        <img src="assets/images/background/line.png" alt="" class="img-line">
+        <div class="shape"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="block-text center">
+                        <h6 class="sub-heading"><span>Services</span></h6>
+                        <h3 class="heading wow" data-splitting>Full-Stack Development  <br>Services</h3>
+                    </div>
+    
+                    <div class="roadmap__main" data-aos="fade-up" data-aos-duration="2000">
+                        <!-- Front-End Development -->
+                        <div class="roadmap-box">
+                            <div style="background: linear-gradient(89.96deg, rgba(255, 255, 255, 0.05) 0.03%, rgba(255, 255, 255, 0.008) 49.67%, rgba(255, 255, 255, 0.05) 99.96%);
+                                backdrop-filter: blur(4px);
+                                border-radius: 100px;
+                                position: absolute;
+                                top: -15px;
+                                left: 29px;
+                                padding: 6px 16px;
+                                background: linear-gradient(264.28deg, #DEC7FF -38.2%, #5C27FE 103.12%), #FFFFFF;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                font-weight: 600;
+                                font-size: 12px;
+                                font-family: 'Conthrax';">Front-End Development</div>
+                            <div class="content">
+                                <h5 class="title">Responsive Web Design</h5>
+                                <p class="text">I create responsive, user-friendly websites with modern front-end technologies such as HTML, CSS, JavaScript.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Back-End Development -->
+                        <div class="roadmap-box right">
+                            <div style="background: linear-gradient(89.96deg, rgba(255, 255, 255, 0.05) 0.03%, rgba(255, 255, 255, 0.008) 49.67%, rgba(255, 255, 255, 0.05) 99.96%);
+                                backdrop-filter: blur(4px);
+                                border-radius: 100px;
+                                position: absolute;
+                                top: -15px;
+                                left: 29px;
+                                padding: 6px 16px;
+                                background: linear-gradient(264.28deg, #DEC7FF -38.2%, #5C27FE 103.12%), #FFFFFF;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                font-weight: 600;
+                                font-size: 12px;
+                                font-family: 'Conthrax';">Back-End Development</div>
+                            <div class="content">
+                                <h5 class="title">Database Integration</h5>
+                                <p class="text">I build robust back-end solutions with powerful server-side technologies and integrate with both SQL and NoSQL databases for efficient data management.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Android Development -->
+                        <div class="roadmap-box">
+                            <div style="background: linear-gradient(89.96deg, rgba(255, 255, 255, 0.05) 0.03%, rgba(255, 255, 255, 0.008) 49.67%, rgba(255, 255, 255, 0.05) 99.96%);
+                                backdrop-filter: blur(4px);
+                                border-radius: 100px;
+                                position: absolute;
+                                top: -15px;
+                                left: 29px;
+                                padding: 6px 16px;
+                                background: linear-gradient(264.28deg, #DEC7FF -38.2%, #5C27FE 103.12%), #FFFFFF;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                font-weight: 600;
+                                font-size: 12px;
+                                font-family: 'Conthrax';">Android Development</div>
+                            <div class="content">
+                                <h5 class="title">Mobile App Development</h5>
+                                <p class="text">I develop high-performance mobile apps using Flutter for Android, ensuring smooth user experiences and optimized performance.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Web Desktop Apps Development -->
+                        <div class="roadmap-box right">
+                            <div style="background: linear-gradient(89.96deg, rgba(255, 255, 255, 0.05) 0.03%, rgba(255, 255, 255, 0.008) 49.67%, rgba(255, 255, 255, 0.05) 99.96%);
+                                backdrop-filter: blur(4px);
+                                border-radius: 100px;
+                                position: absolute;
+                                top: -15px;
+                                left: 29px;
+                                padding: 6px 16px;
+                                background: linear-gradient(264.28deg, #DEC7FF -38.2%, #5C27FE 103.12%), #FFFFFF;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                font-weight: 600;
+                                font-size: 12px;
+                                font-family: 'Conthrax';">Web Desktop Apps</div>
+                            <div class="content">
+                                <h5 class="title">Java-Based Desktop Apps</h5>
+                                <p class="text">I create powerful, cross-platform desktop applications using Java for seamless performance and a rich user experience.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Firestore Integration -->
+                        <div class="roadmap-box">
+                            <div style="background: linear-gradient(89.96deg, rgba(255, 255, 255, 0.05) 0.03%, rgba(255, 255, 255, 0.008) 49.67%, rgba(255, 255, 255, 0.05) 99.96%);
+                                backdrop-filter: blur(4px);
+                                border-radius: 100px;
+                                position: absolute;
+                                top: -15px;
+                                left: 29px;
+                                padding: 6px 16px;
+                                background: linear-gradient(264.28deg, #DEC7FF -38.2%, #5C27FE 103.12%), #FFFFFF;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                font-weight: 600;
+                                font-size: 12px;
+                                font-family: 'Conthrax';">Firestore Integration</div>
+                            <div class="content">
+                                <h5 class="title">Real-Time Data Sync</h5>
+                                <p class="text">I integrate Firestore for real-time data synchronization in web and mobile applications, ensuring seamless communication between users and devices.</p>
+                            </div>
+                        </div>
+    
+                        <div class="icon"></div>
+                        <div class="icon bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+    <section id="portfolio" class="banner s2">
+   
+        <div class="shape"></div>
+        <div class="shape right"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                  
+
+                    <div class="swiper bannerSwiper">
+                        <div class="block-text center">
+                            <h6 class="sub-heading"><span>Projects</span></h6>
+                           
+                        </div>
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="card-box" >
+                                <div class="top d-flex">
+                                    <span class=""></span>
+                                    <div>
+                                        <h6 class="price">ARTE</h6>
+                                        
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/w4.jpg" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                        
+    
+                                        
+                                        <div class="actions">
+                                            <a href="https://github.com/wajeehaljunaid491/DevArt.git" target="_blank" class="btn github" style="color: white;">GitHub</a>
+                                            <a href="https://youtu.be/Fv-PCFpeSeg?si=4D6jRKxuC7nxOLyU" target="_blank" class="btn youtube"style="color: white;">Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card-box">
+                                <div class="top d-flex">
+                                   
+                                    <div>
+                                       
+                                        <h6 class="price">HALU</h6>
+                                       
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/w2.png" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                       
+                                        
+                                        <div class="actions">
+                                            <!-- <a href="https://github.com/username/project" target="_blank" class="btn github" style="color: white;">GitHub</a> -->
+                                            <a href="https://youtu.be/rfxvLAQDcpI?si=WJrTjqe61A3v0Hrx" target="_blank" class="btn youtube" style="color: white;">Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card-box">
+                                <div class="top d-flex">
+                                    
+                                    <div>
+                                        
+                                        <h6 class="price">waste2worth</h6>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/w1.png" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                       
+                                        
+                                        <div class="actions">
+                                            <a href="https://github.com/wajeehaljunaid491/waste2worth.git" target="_blank" class="btn github" style="color: white;">GitHub</a>
+                                            <a href="https://youtu.be/ZRvQqRgCiRQ?si=M8AARmeUWWJ18iyO" target="_blank" class="btn youtube" style="color: white;">Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card-box" >
+                                <div class="top d-flex">
+                                    
+                                    <div>
+                                       
+                                        <h6 class="price">scholarium</h6>
+                                       
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/w3.jpg" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                      
+                                        
+                                        <div class="actions">
+                                            <a href="https://github.com/wajeehaljunaid491/scholarium.git" target="_blank" class="btn github" style="color: white;">GitHub</a>
+                                            <a href="https://youtu.be/VdMdM2LOEwY?si=JgOU7lm0QgtFL-US" target="_blank" class="btn youtube" style="color: white;">Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card-box">
+                                <div class="top d-flex">
+                                   
+                                    <div>
+                                      
+                                        <h6 class="price">reveree</h6>
+                                        
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/rev1.png" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                        
+                                        
+                                        <div class="actions">
+                                            <a href="https://github.com/wajeehaljunaid491/Riveree.git" target="_blank" class="btn github" style="color: white;">GitHub</a>
+                                            <a href="https://youtu.be/omN29wq1gdc" target="_blank" class="btn youtube" style="color: white;">Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="card-box">
+                                <div class="top d-flex">
+                                    
+                                    <div>
+                                       
+                                        <h6 class="price">healinic</h6>
+                                        
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="image">
+                                        <img src="assets/images/layouts/w5.png" alt="">
+                                    </div>
+    
+                                    <div class="info d-flex">
+                                       
+                                        
+                                        <div class="actions">
+                                            <a href="#" target="_blank" class="btn figma" style="color: white;">Figma</a>
+                                            <!-- <a href="https://youtube.com/watch?v=projectvideo" target="_blank" class="btn youtube" style="color: white;">YouTube</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+
+                          
+
+
+                        </div>
+                      </div>
+
+                      
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id ="skills" class="unique-section">
+        <br>
+        <div class="background-glow"></div>
+        <main class="container11">
+            <div class="block-text center">
+                <h6 class="sub-heading"><span>Skills & tools</span></h6>
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle">
+                        <div class="slider">
+                            <span class="skills">Skills</span>
+                            <span class="tools">Tools</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="grid" id="collection-grid"></div>
+            </div>
+        </main>
+    </section>
+    
+    
+
+    
+
+    <footer id="footer" class="footer">
+        <br>
+        
+        <div class="shape"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <section id ="contact" class="touch">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="block-text center">
+                                        <h6 class="sub-heading"><span>Get in Touch!</span></h6>
+                                        <h3 class="heading">Let’s Start Working <br>
+                                            Together
+                                            </h3>
+                                    </div>
+                                    <div class="touch__main">
+                                        <div class="info">
+                                            <h5>Contact information</h5>
+                                            <ul class="list">
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10 7C10 7.53043 9.78929 8.03914 9.41421 8.41421C9.03914 8.78929 8.53043 9 8 9C7.46957 9 6.96086 8.78929 6.58579 8.41421C6.21071 8.03914 6 7.53043 6 7C6 6.46957 6.21071 5.96086 6.58579 5.58579C6.96086 5.21071 7.46957 5 8 5C8.53043 5 9.03914 5.21071 9.41421 5.58579C9.78929 5.96086 10 6.46957 10 7V7Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M13 7C13 11.7613 8 14.5 8 14.5C8 14.5 3 11.7613 3 7C3 5.67392 3.52678 4.40215 4.46447 3.46447C5.40215 2.52678 6.67392 2 8 2C9.32608 2 10.5979 2.52678 11.5355 3.46447C12.4732 4.40215 13 5.67392 13 7V7Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                    <p>  Jl. Kaliurang No.Km. 14,5, Krawitan, Umbulmartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584
+                                                    </p>                                        
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_794_6441)">
+                                                        <path d="M1.5 4.5C1.5 10.0227 5.97733 14.5 11.5 14.5H13C13.3978 14.5 13.7794 14.342 14.0607 14.0607C14.342 13.7794 14.5 13.3978 14.5 13V12.0853C14.5 11.7413 14.266 11.4413 13.932 11.358L10.9833 10.6207C10.69 10.5473 10.382 10.6573 10.2013 10.8987L9.55467 11.7607C9.36667 12.0113 9.042 12.122 8.748 12.014C7.65659 11.6128 6.66544 10.9791 5.84319 10.1568C5.02094 9.33456 4.38725 8.34341 3.986 7.252C3.878 6.958 3.98867 6.63333 4.23933 6.44533L5.10133 5.79867C5.34333 5.618 5.45267 5.30933 5.37933 5.01667L4.642 2.068C4.60143 1.9058 4.50781 1.7618 4.37604 1.65889C4.24426 1.55598 4.08187 1.50006 3.91467 1.5H3C2.60218 1.5 2.22064 1.65804 1.93934 1.93934C1.65804 2.22064 1.5 2.60218 1.5 3V4.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_794_6441">
+                                                        <rect width="16" height="16" fill="white"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <p>+6281218383195</p>
+                                                        
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M14.5 4.5V11.5C14.5 11.8978 14.342 12.2794 14.0607 12.5607C13.7794 12.842 13.3978 13 13 13H3C2.60218 13 2.22064 12.842 1.93934 12.5607C1.65804 12.2794 1.5 11.8978 1.5 11.5V4.5M14.5 4.5C14.5 4.10218 14.342 3.72064 14.0607 3.43934C13.7794 3.15804 13.3978 3 13 3H3C2.60218 3 2.22064 3.15804 1.93934 3.43934C1.65804 3.72064 1.5 4.10218 1.5 4.5M14.5 4.5V4.662C14.5 4.9181 14.4345 5.16994 14.3096 5.39353C14.1848 5.61712 14.0047 5.80502 13.7867 5.93933L8.78667 9.016C8.55014 9.16169 8.2778 9.23883 8 9.23883C7.7222 9.23883 7.44986 9.16169 7.21333 9.016L2.21333 5.94C1.99528 5.80569 1.81525 5.61779 1.69038 5.3942C1.56551 5.1706 1.49997 4.91876 1.5 4.66267V4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    <p>wajeeh.aljunaid491@gmail.com</p>                                        
+                                                </li>
+                                            </ul>
+                
+                                            <div class="image">
+                                                <img src="assets/images/layouts/touch.png" alt="">
+                                            </div>
+                                        </div>
+                
+                                        <form action="#" class="form-box">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label >Your name</label>
+                                                  <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col">
+                                                    <label >Your email</label>
+                                                  <input type="email" class="form-control">
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col">
+                                                    <label >Your phone</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col">
+                                                    <label >Subject</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col">
+                                                    <label >Message</label>
+                                                    <textarea name="mess" id="mess" cols="30" rows="10"></textarea>
+                                                </div>
+                       
+                                              </div>
+                                              <div class="row mb-0">
+                                                <div class="col">
+                                                    <button class="action-btn"><span>Send Now</span></button>
+                                                </div>
+                                              </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="footer__bottom">
+                        <a href="index.html" class="logo">junaid</a>
+
+                        <div class="center mb--30">
+                            <ul class="list">
+                                <li><a href="#home">Home</a></li>
+                             
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#roadmap">Services</a></li>
+                                <li><a href="#portfolio">portfolio</a></li>
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#footer">Contact</a></li>
+                            </ul>
+                            <p>Copyright © 2024. Designed by Wajeeh Aljunaid</p>
+                        </div>
+                        <ul class="list-social">
+                            <li><a href="https://github.com/wajeehaljunaid491">
+                             
+                                <img src="assets/images/logo/pngegg.png" alt="" style= "width: 25px; height: 25px;">
+                            </a></li>
+                            <li><a href="https://www.instagram.com/bin_aljunaid?igsh=bWJ3ajE0a2Z5N2s=">
+                                
+                                <img src="assets/images/logo/ig.png" alt="" style= "width: 35px; height: 35px;">
+                            </a></li>
+                            <li><a href="https://www.linkedin.com/login">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.0006 14V8.87249C14.0006 6.35249 13.4581 4.42749 10.5181 4.42749C9.10062 4.42749 8.15563 5.19749 7.77063 5.93249H7.73563V4.65499H4.95312V14H7.85813V9.36249C7.85813 8.13749 8.08563 6.96499 9.59063 6.96499C11.0781 6.96499 11.0956 8.34749 11.0956 9.43249V13.9825H14.0006V14Z" fill="white"/>
+                                    <path d="M0.226562 4.65479H3.13156V13.9998H0.226562V4.65479Z" fill="white"/>
+                                    <path d="M1.68 0C0.7525 0 0 0.7525 0 1.68C0 2.6075 0.7525 3.3775 1.68 3.3775C2.6075 3.3775 3.36 2.6075 3.36 1.68C3.36 0.7525 2.6075 0 1.68 0Z" fill="white"/>
+                                    </svg>
+                                    
+                            </a></li>
+                            <li><a href="https://www.youtube.com/@WAJEEHALDEENAHMEDQASEMALJUNAID">
+                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.2347 1.9639C17.1458 1.22216 16.4468 0.510897 15.7154 0.415609C11.2555 -0.138536 6.7457 -0.138536 2.28731 0.415609C1.55533 0.51069 0.856308 1.22216 0.76739 1.9639C0.452537 4.68236 0.452537 7.31818 0.76739 10.036C0.856308 10.7778 1.55533 11.4897 2.28731 11.5843C6.7457 12.1384 11.2557 12.1384 15.7154 11.5843C16.4468 11.4898 17.1458 10.7778 17.2347 10.036C17.5496 7.31842 17.5496 4.68236 17.2347 1.9639ZM7.58931 8.82375V3.17703L11.8243 6.00049L7.58931 8.82375Z" fill="white"/>
+                                </svg>    
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <a id="scroll-top"><span class="icon-arrow-top"></span></a>
+    
+    </div>
+    
+    
+
+
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.easing.js"></script>
+    <script src="app/js/jquery-migrate.min.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="app/js/countto.js"></script>
+    <script src="app/js/wow.min.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/count-down.js"></script>
+
+    <script src="app/js/aos.js"></script>
+
+
+      <script src="app/js/swiper-bundle.min.js"></script>
+      <script src="app/js/swiper.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+       (function() {
+        const skills = [
+    { name: 'HTML', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'JavaScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Python', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Java', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+    { name: 'C#', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+    { name: 'PHP', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+    { name: 'Flutter', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+    { name: 'JavaFX', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+    { name: 'Kotlin', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
+    { name: 'SQL', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'MongoDB', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+    { name: 'Firebase', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+    { name: 'Docker', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+    { name: 'Bootstrap', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+    { name: 'Unity', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg' },
+    { name: 'Unreal Engine', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg' },
+];
+
+const tools = [
+    { name: 'VS Code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+    { name: 'Git', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'Figma', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+    { name: 'NPM', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' },
+    { name: 'Postman', image: 'https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg' },
+    { name: 'Command Line', image: 'assets/images/icon/terminal.png' },
+    { name: 'GitHub', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'Slack', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg' },
+    ];
+
+
+
+    const grid = document.getElementById('collection-grid');
+    const toggle = document.getElementById('toggle');
+
+    function createCard(item) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <img src="${item.image}" alt="${item.name} icon">
+            <p>${item.name}</p>
+        `;
+        return card;
+    }
+
+    function updateGrid(items) {
+        grid.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        items.forEach(item => {
+            fragment.appendChild(createCard(item));
+        });
+        grid.appendChild(fragment);
+    }
+
+    function updateSection(showTools) {
+        updateGrid(showTools ? tools : skills);
+    }
+
+    toggle.addEventListener('change', (e) => {
+        updateSection(e.target.checked);
+    });
+
+    // Initial render
+    updateSection(false);
+})();
+
+    </script>
+
+</body>
+</html>
